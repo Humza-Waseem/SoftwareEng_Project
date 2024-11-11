@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% include 'main.html'%}
+</head>
+<body>
+  
+
+    
+
+
+
+  {% if form.errors %}
+  <div class="error">
+      <ul>
+          {% for field in form %}
+              {% for error in field.errors %}
+                  <li>{{ error }}</li>
+              {% endfor %}
+          {% endfor %}
+      </ul>
+  </div>
+{% endif %}
+
+  <section class="loginForm" >
+  <div class="wrapper">
+        <div class="card-switch">
+            <label class="switch">
+               <input type="checkbox" class="toggle">
+               <span class="slider"></span>
+               <span class="card-side"></span>
+               <div class="flip-card__inner">
+
+  
+                  
+   
+
+
+              
+
+                 
+                <div class="flip-card__back">
+                  <div class="title">Sign up</div>
+                  <form method="POST" action="{% url 'UserRegisteration' %}">
+                      {% csrf_token %}
+                      
+                      <!-- Render the form fields (email, username, password) -->
+                      <input class="flip-card__input" type="email" name="email" placeholder="Email" value="{{ form.email.value }}">
+                      <input class="flip-card__input" type="text" name="username" placeholder="Username" value="{{ form.username.value }}">
+                      <input class="flip-card__input" type="password" name="password" placeholder="Password" value="{{ form.password.value }}">
+                      
+                      <!-- Submit button -->
+                      <input type="submit" class="flip-card__btn" value="Register">
+                  </form>
+              </div>
+              
+              <div class="flip-card__front">
+                  <div class="title">Log in</div>
+                  <form method="POST" action="{% url 'UserLogin' %}">
+                      {% csrf_token %}
+                      <input class="flip-card__input" name="username" placeholder="Username" type="text" value="{{ form.username.value }}">
+                      <input class="flip-card__input" name="password" placeholder="Password" type="password" value="{{ form.password.value }}">
+                      <input type="submit" class="flip-card__btn" value="Let's go!">
+                  </form>
+              </div>
+              
+                  
+
+                
+               </div>
+            </label>
+        </div>   
+  </div> 
+</section> 
+
+
+
+ {% comment %} {% block content %}
+<section class="loginForm">
+    <div class="wrapper">
+        <div class="card-switch">
+            <label class="switch">
+                <input type="checkbox" class="toggle" {% if page == 'register' %}checked{% endif %}>
+                <span class="slider"></span>
+                <span class="card-side"></span>
+                
+                <div class="flip-card__inner">
+                    <!-- Login Form -->
+                    <div class="flip-card__front">
+                        <div class="title">Log in</div>
+                        <form class="flip-card__form" method="POST" action="">
+                            {% csrf_token %}
+                            {{ form.email.label_tag }}  <!-- Label for Email -->
+                            {{ form.email }}  <!-- Email input field for login -->
+                            {{ form.password.label_tag }}  <!-- Label for Password -->
+                            {{ form.password }}  <!-- Password input field for login -->
+                            <button class="flip-card__btn" type="submit">Let's go!</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Registration Form -->
+                    <div class="flip-card__back">
+                        <div class="title">Sign up</div>
+                        <form class="flip-card__form" method="POST" action="">
+                            {% csrf_token %}
+                            {{ form.name.label_tag }}  <!-- Label for Name -->
+                            {{ form.name }}  <!-- Name input field for registration -->
+                            {{ form.email.label_tag }}  <!-- Label for Email -->
+                            {{ form.email }}  <!-- Email input field for registration -->
+                            {{ form.password.label_tag }}  <!-- Label for Password -->
+                            {{ form.password }}  <!-- Password input field for registration -->
+                            <button class="flip-card__btn" type="submit">Confirm!</button>
+                        </form>
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+</section>
+{% endblock content %}  {% endcomment %}
+
+
+
+
+
+
+
+</body>
+</html>
