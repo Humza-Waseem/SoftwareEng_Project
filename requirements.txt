@@ -1,4 +1,17 @@
 Django>=4.0,<5.0        
+<<<<<<< HEAD
 djangorestframework                    
+=======
+djangorestframework      
+django-cors-headers     
+psycopg2-binary          
+mysqlclient              
+pillow                   
+python-decouple         
+django-environ           
+django-allauth         
+djangorestframework-simplejwt  
+django-filter            
+>>>>>>> f66e0d9b6c7887c296ad5c4faeca1041fe625f37
 pillow
 requests

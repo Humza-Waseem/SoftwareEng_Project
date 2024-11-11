@@ -1,4 +1,5 @@
 from django.test import TestCase
+<<<<<<< HEAD
 import pytest
 from django.urls import reverse
 # Create your tests here.
@@ -54,3 +55,7 @@ def f():
 def test_mytest():
     with pytest.raises(SystemExit):
         f()
+=======
+
+# Create your tests here.
+>>>>>>> f66e0d9b6c7887c296ad5c4faeca1041fe625f37
